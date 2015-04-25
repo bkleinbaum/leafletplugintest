@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2015 by anonymous (http://jsbin.com/xiwibijovu/5/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+      <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.12/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="./css/l.geosearch.css" />
+      <link rel="stylesheet" href="./dist/Leaflet.Coordinates-0.1.4.css"/>
+
+
+
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.12/cartodb.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="./js/l.control.geosearch.js"></script>
+    <script src="./js/l.geosearch.provider.openstreetmap.js"></script>
+  <script src="./dist/Leaflet.Coordinates-0.1.4.min.js"></script>
+
+
+
+  
+
+
+  
+   
+
+
+   
+  <meta charset="utf-8">
+  <title>geocoding</title>
+<style id="jsbin-css">
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 100%; 
+}
+</style>
+</head>
+<body>
+  <div id="map"></div>
+<script id="jsbin-javascript">
+
+  
+
+$(document).ready(function () {
+  cartodb.createVis('map', 'http://eric.cartodb.com/api/v2/viz/4cef7c76-0825-11e3-86d3-5404a6a69006/viz.json', {
+    cartodb_logo: false
+  })
+  .done(function (vis, layers) {
+    var map = vis.getNativeMap();
+
+new L.Control.GeoSearch({
+    provider: new L.GeoSearch.Provider.OpenStreetMap()
+}).addTo(map);
+// 
+
+  });
+});
+
+
+
+// L.control.coordinates({
+//     position:"bottomleft", //optional default "bootomright"
+//     decimals:2, //optional default 4
+//     decimalSeperator:".", //optional default "."
+//     labelTemplateLat:"Latitude: {y}", //optional default "Lat: {y}"
+//     labelTemplateLng:"Longitude: {x}", //optional default "Lng: {x}"
+//     enableUserInput:true, //optional default true
+//     useDMS:false, //optional default false
+//     useLatLngOrder: true //ordering of labels, default false-> lng-lat
+// }).addTo(map);
+
+
+</script>
+</body>
+</html>
